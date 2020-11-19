@@ -1,0 +1,68 @@
+
+    <div class="row">
+        <div class="offset-sm-2 col-sm-8">
+  
+          <div class="card text-blank border-0">
+            <div class="card-body">
+              <div class="card-title text-center">
+                <h5>Sign up for free</h5>
+              </div>
+  
+              <div class="card-text">
+  
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                  <div class="form-row">
+                    <div class="form-group col-sm-6">
+                      <input type="text" class="form-control" placeholder="First Name" [formControl]="myForm.controls['first_name']">
+                    </div>
+      
+                    <div class="form-group col-sm-6">
+                      <input type="text" class="form-control" placeholder="Last Name" [formControl]="myForm.controls['last_name']">
+                    </div>
+                  </div>
+  
+                  <div class="alert alert-danger" *ngIf="(!myForm.controls['first_name'].valid || !myForm.controls['last_name'].valid) && (myForm.controls['first_name'].touched || myForm.controls['last_name'].touched)">
+                    First and Last name are required
+                  </div>
+  
+                  <div class="form-group">
+  
+                    <input type="number" placeholder="Enter your age" class="form-control" [formControl]="myForm.controls['age']">
+  
+                  </div>
+  
+                  <div class="alert alert-danger" *ngIf="!myForm.controls['age'].valid && myForm.controls['age'].touched">
+                    Age must be entered.
+                  </div>
+  
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Gender" [formControl]="myForm.controls['gender']">
+                  </div>
+  
+                  <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Mobile number" [formControl]="myForm.controls['mobile_number']">
+                  </div>
+  
+                  <div class="alert alert-danger" *ngIf="!myForm.controls['mobile_number'].valid && myForm.controls['mobile_number'].touched">
+                    Enter a valid mobile number.
+                  </div>
+                  
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-block btn-warning" [disabled]="!myForm.valid">Submit</button>
+                  </div>
+                </form>
+  
+              </div>
+            </div>
+          </div>
+  
+          <div class="alert alert-success" *ngIf="message.length > 0">
+            {{ message }}
+          </div>
+  
+          <div class="alert alert-danger" *ngIf="userError">
+            {{ userError }}
+          </div>
+  
+        </div>
+      </div>

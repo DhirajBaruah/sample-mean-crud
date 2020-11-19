@@ -1,0 +1,64 @@
+
+    <div class="row">
+        <div class="offset-sm-2 col-sm-8">
+  
+          <div class="card text-blank border-0">
+            <div class="card-body">
+              <div class="card-title text-center">
+                <h5>Edit {{personService.person[0].first_name}} {{personService.person[0].last_name}}'s details</h5>
+              </div>
+  
+              <div class="card-text">
+  
+                
+                  <div class="form-row">
+                    <div class="form-group col-sm-6">
+                      <input type="text" class="form-control" [(ngModel)]="personService.person[0].first_name" >
+                    </div>
+      
+                    <div class="form-group col-sm-6">
+                      <input type="text" class="form-control" [(ngModel)]="personService.person[0].last_name" >
+                    </div>
+                  </div>
+  
+  
+                  <div class="form-group">
+  
+                    <input type="number" [(ngModel)]="personService.person[0].age" class="form-control" >
+  
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="personService.person[0].gender" >
+                  </div>
+  
+                  <div class="form-group">
+                    <input type="number" class="form-control" [(ngModel)]="personService.person[0].mobile_number" >
+                  </div>
+  
+                  
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-block btn-warning" (click)="update()">Update</button>
+                  </div>
+
+                  <br>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-block btn-danger" (click)="delete()">Delete</button>
+                  </div>
+                
+  
+              </div>
+            </div>
+          </div>
+  
+          <div class="alert alert-success" *ngIf="message.length > 0">
+            {{ message }}
+          </div>
+  
+          <div class="alert alert-danger" *ngIf="userError">
+            {{ userError }}
+          </div>
+  
+        </div>
+      </div>

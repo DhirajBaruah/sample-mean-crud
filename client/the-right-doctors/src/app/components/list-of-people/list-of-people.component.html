@@ -1,0 +1,26 @@
+  <div class="container pt-5 ">
+    <div class = "table-responsive">
+      <table class="table table-sm ">
+        <thead class="thead-dark">
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Mobile Number</th>
+          <th>Action</th>
+        </thead>
+        <tr *ngFor="let people of personService.person">
+          <td>{{people.first_name}} {{people.last_name}}</td>
+          <td>{{people.age}}</td>
+          <td>{{people.gender}}</td>
+          <td>{{people.mobile_number}}</td>
+          <td>
+            <a routerLink="/edit-people/{{people._id}}" class="action-btn">
+              edit
+            </a>
+          </td>
+        </tr>
+      </table>
+  </div>
+  {{errorMessage}}
+  </div>
+  
